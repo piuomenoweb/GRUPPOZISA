@@ -1,0 +1,38 @@
+============================================
+VARIABILI D'AMBIENTE PER VERCEL
+Gruppo Zisa - Credenziali Supabase
+============================================
+
+Copia queste variabili su Vercel:
+(Project Settings → Environment Variables)
+
+--------------------------------------------
+1. SUPABASE PROJECT URL
+--------------------------------------------
+Name: NEXT_PUBLIC_SUPABASE_URL
+Value: https://xmocpmklgahbizblhtiu.supabase.co
+
+Environment: ✅ Production, ✅ Preview, ✅ Development
+
+--------------------------------------------
+2. SUPABASE PUBLISHABLE API KEY
+--------------------------------------------
+Name: NEXT_PUBLIC_SUPABASE_ANON_KEY
+Value: sb_publishable_Of9FpsqMBIIoEjLUFaZztg_b2CB-JrJ
+
+Environment: ✅ Production, ✅ Preview, ✅ Development
+
+--------------------------------------------
+3. GOOGLE MAPS API KEY (OPZIONALE - STEP 2)
+--------------------------------------------
+⚠️ SALTATA PER ORA - Verrà aggiunta in un secondo momento
+
+Quando sarai pronto, vedi GOOGLE_MAPS_SETUP.md per le istruzioni.
+
+============================================
+IMPORTANTE:
+- Aggiungi SOLO le 2 variabili Supabase per ora
+- Google Maps verrà aggiunta dopo
+- Dopo il deploy, verifica che il form contatti funzioni
+============================================
+

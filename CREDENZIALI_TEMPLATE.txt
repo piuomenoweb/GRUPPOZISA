@@ -1,0 +1,46 @@
+============================================
+CREDENZIALI PER VERCEL - GRUPPO ZISA
+============================================
+
+Copia queste variabili d'ambiente su Vercel:
+(Project Settings → Environment Variables)
+
+--------------------------------------------
+1. SUPABASE PROJECT URL
+--------------------------------------------
+Name: NEXT_PUBLIC_SUPABASE_URL
+Value: [Incolla qui il Project URL da Supabase Settings → API]
+Esempio: https://xxxxx.supabase.co
+
+Environment: ✅ Production, ✅ Preview, ✅ Development
+
+--------------------------------------------
+2. SUPABASE ANON KEY
+--------------------------------------------
+Name: NEXT_PUBLIC_SUPABASE_ANON_KEY
+Value: [Incolla qui l'anon/public key da Supabase Settings → API]
+Esempio: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxx...
+
+Environment: ✅ Production, ✅ Preview, ✅ Development
+
+--------------------------------------------
+3. GOOGLE MAPS API KEY (OPZIONALE - STEP 2)
+--------------------------------------------
+⚠️ SALTATA PER ORA - Verrà aggiunta in un secondo momento
+
+Quando sarai pronto, vedi GOOGLE_MAPS_SETUP.md per le istruzioni.
+
+Name: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+Value: [Incolla qui la Google Maps API key da Google Cloud Console]
+Esempio: AIzaSyCQU0UHkqns1ZesUb2OfHnvVfdlSL8K07U
+
+Environment: ✅ Production, ✅ Preview, ✅ Development
+
+============================================
+IMPORTANTE:
+- Aggiungi queste variabili PRIMA di fare deploy
+- Per ora aggiungi SOLO le 2 variabili Supabase
+- Google Maps verrà aggiunta dopo (vedi GOOGLE_MAPS_SETUP.md)
+- Dopo il deploy, verifica che il sito funzioni
+============================================
+
