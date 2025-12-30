@@ -1,17 +1,23 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import Logo from './Logo'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const { scrollY } = useScroll()
-  const headerOpacity = useTransform(scrollY, [0, 100], [0, 1])
-  const headerBlur = useTransform(scrollY, [0, 100], [0, 20])
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -21,79 +27,63 @@ export default function Header() {
     }
   }
 
+  const menuItems = [
+    { id: 'about', label: 'Chi Siamo' },
+    { id: 'products', label: 'Prodotti' },
+    { id: 'values', label: 'Valori' },
+    { id: 'map', label: 'Terreni' },
+    { id: 'contact', label: 'Contatti' },
+  ]
+
   return (
-    <motion.header
-      style={{
-        opacity: headerOpacity,
-        backdropFilter: `blur(${headerBlur}px)`,
-      }}
+    <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        "bg-zisa-blue/80 backdrop-blur-xl border-b border-white/10"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled 
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200" 
+          : "bg-white/80 backdrop-blur-sm"
       )}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <motion.button
+          {/* Logo */}
+          <button
             onClick={() => scrollToSection('hero')}
             className="flex items-center space-x-3 group"
             aria-label="Torna all'inizio"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
-            <motion.div
-              whileHover={{ rotateY: 360 }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
-              <Image
-                src="/logo-z.png"
-                alt="Gruppo Zisa Logo"
-                width={48}
-                height={48}
-                className="rounded-full border-2 border-zisa-yellow/50 group-hover:border-zisa-yellow transition-all"
-              />
-            </motion.div>
-            <span className="text-white font-montserrat font-bold text-xl hidden sm:block group-hover:text-zisa-yellow transition-colors">
+            <div className="transition-transform group-hover:scale-105">
+              <Logo variant="icon" />
+            </div>
+            <span className={cn(
+              "font-montserrat font-bold text-xl hidden sm:block transition-colors",
+              isScrolled ? "text-zisa-blue-dark" : "text-zisa-blue-dark"
+            )}>
               Gruppo Zisa
             </span>
-          </motion.button>
+          </button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-2">
-            {['about', 'products', 'map', 'contact'].map((section, index) => (
-              <motion.div
-                key={section}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Button
-                  variant="ghost"
-                  onClick={() => scrollToSection(section)}
-                  className="text-white hover:text-zisa-yellow hover:bg-white/10 rounded-full px-6"
-                >
-                  {section === 'about' && 'Chi Siamo'}
-                  {section === 'products' && 'Prodotti'}
-                  {section === 'map' && 'Terreni'}
-                  {section === 'contact' && 'Contatti'}
-                </Button>
-              </motion.div>
-            ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 }}
-            >
+          <div className="hidden lg:flex items-center space-x-1">
+            {menuItems.map((item) => (
               <Button
-                variant="zisaYellow"
-                size="lg"
-                onClick={() => scrollToSection('contact')}
-                className="ml-4 rounded-full"
+                key={item.id}
+                variant="ghost"
+                onClick={() => scrollToSection(item.id)}
+                className={cn(
+                  "text-gray-700 hover:text-zisa-blue hover:bg-blue-50 rounded-lg px-4"
+                )}
               >
-                Contatti
+                {item.label}
               </Button>
-            </motion.div>
+            ))}
+            <Button
+              variant="default"
+              onClick={() => scrollToSection('contact')}
+              className="ml-4 bg-zisa-blue hover:bg-zisa-blue-dark text-white rounded-lg"
+            >
+              Contatti
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -101,7 +91,7 @@ export default function Header() {
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white"
+            className="lg:hidden text-gray-700"
             aria-label="Menu"
             aria-expanded={isOpen}
           >
@@ -110,32 +100,38 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: isOpen ? 'auto' : 0,
-            opacity: isOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden"
-        >
-          <div className="py-4 space-y-2">
-            {['about', 'products', 'map', 'contact'].map((section) => (
-              <Button
-                key={section}
-                variant="ghost"
-                onClick={() => scrollToSection(section)}
-                className="w-full text-left text-white hover:text-zisa-yellow hover:bg-white/10 justify-start"
-              >
-                {section === 'about' && 'Chi Siamo'}
-                {section === 'products' && 'Prodotti'}
-                {section === 'map' && 'Terreni'}
-                {section === 'contact' && 'Contatti'}
-              </Button>
-            ))}
-          </div>
-        </motion.div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden overflow-hidden"
+            >
+              <div className="py-4 space-y-1 border-t border-gray-200 mt-4">
+                {menuItems.map((item) => (
+                  <Button
+                    key={item.id}
+                    variant="ghost"
+                    onClick={() => scrollToSection(item.id)}
+                    className="w-full text-left justify-start text-gray-700 hover:text-zisa-blue hover:bg-blue-50"
+                  >
+                    {item.label}
+                  </Button>
+                ))}
+                <Button
+                  variant="default"
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full bg-zisa-blue hover:bg-zisa-blue-dark text-white mt-2"
+                >
+                  Contatti
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
-    </motion.header>
+    </header>
   )
 }

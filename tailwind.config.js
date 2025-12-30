@@ -49,11 +49,14 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Colori brand Gruppo Zisa
-        'zisa-blue': '#1E3A8A',
-        'zisa-yellow': '#FCD34D',
+        // Colori brand Gruppo Zisa - Nuova palette
+        'zisa-blue': '#3B82F6',
+        'zisa-blue-dark': '#1E40AF',
+        'zisa-yellow': '#F59E0B',
         'zisa-green': '#10B981',
-        'zisa-black': '#0F172A',
+        'zisa-emerald': '#059669',
+        'zisa-black': '#111827',
+        'zisa-gray': '#374151',
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],

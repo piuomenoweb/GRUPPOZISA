@@ -1,0 +1,8 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="30" cy="30" r="28" fill="#3B82F6"/>
+  
+  <!-- Letter Z -->
+  <path d="M 18 22 L 42 22 L 42 26 L 26 26 L 26 30 L 38 30 L 38 34 L 18 34 Z" fill="white"/>
+</svg>
+
