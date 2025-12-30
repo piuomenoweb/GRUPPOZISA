@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FiDroplet, FiSun, FiLeaf } from 'react-icons/fi'
+import { FiDroplet, FiSun, FiPackage } from 'react-icons/fi'
 
 export default function Products() {
   const products = [
@@ -19,7 +19,7 @@ export default function Products() {
       name: 'Lamponi',
       description: 'Raccolta fresca Sicilia',
       benefits: 'Dolcezza soleggiata',
-      icon: FiLeaf,
+      icon: FiPackage,
       color: 'green',
       image: 'https://images.unsplash.com/photo-1615485925511-ef3c1c3e0e0a?w=800',
     },
@@ -84,7 +84,7 @@ export default function Products() {
                   </h3>
                   <p className="text-gray-600 mb-4">{product.description}</p>
                   <div className="flex items-center text-zisa-green">
-                    <FiLeaf className="mr-2" />
+                    <FiPackage className="mr-2" />
                     <span className="font-semibold">{product.benefits}</span>
                   </div>
                 </div>
