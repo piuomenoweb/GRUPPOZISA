@@ -41,7 +41,10 @@ export default function Footer() {
               {[
                 { id: 'about', label: 'Chi Siamo' },
                 { id: 'products', label: 'Prodotti' },
+                { id: 'stats', label: 'Numeri' },
                 { id: 'values', label: 'Valori' },
+                { id: 'certifications', label: 'Certificazioni' },
+                { id: 'gallery', label: 'Galleria' },
                 { id: 'map', label: 'Terreni' },
                 { id: 'contact', label: 'Contatti' },
               ].map((link) => (
