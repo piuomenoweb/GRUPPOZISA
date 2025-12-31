@@ -144,7 +144,7 @@ export default function Footer() {
       {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 z-50 p-4 rounded-full bg-zisa-blue text-white shadow-lg hover:bg-zisa-blue-dark transition-colors"
+        className="fixed bottom-8 right-8 z-40 p-4 rounded-full bg-zisa-blue text-white shadow-lg hover:bg-zisa-blue-dark transition-colors"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0 }}

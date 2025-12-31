@@ -69,11 +69,16 @@ export default function Certifications() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <Card className="h-full border-2 border-gray-200 hover:border-zisa-blue transition-all hover:shadow-lg">
-                  <CardHeader>
-                    <div className={`w-14 h-14 ${cert.bgColor} rounded-lg flex items-center justify-center mb-4`}>
-                      <Icon className={`h-7 w-7 ${cert.color}`} />
+                <Card className="h-full border-2 border-gray-200 hover:border-zisa-blue transition-all hover:shadow-lg overflow-hidden">
+                  <div className="relative h-32 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                    <div className={`absolute inset-0 ${cert.bgColor} opacity-50`} />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className={`w-16 h-16 ${cert.bgColor} rounded-lg flex items-center justify-center shadow-lg`}>
+                        <Icon className={`h-8 w-8 ${cert.color}`} />
+                      </div>
                     </div>
+                  </div>
+                  <CardHeader>
                     <CardTitle className="text-xl font-montserrat font-bold text-zisa-blue-dark">
                       {cert.title}
                     </CardTitle>

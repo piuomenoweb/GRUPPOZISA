@@ -83,10 +83,10 @@ export default function Values() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="h-full border-2 hover:border-zisa-blue transition-all hover:shadow-lg">
+                <Card className="h-full border-2 border-gray-200 hover:border-zisa-blue transition-all hover:shadow-lg">
                   <CardHeader>
-                    <div className={`w-12 h-12 ${value.bgColor} rounded-lg flex items-center justify-center mb-4`}>
-                      <Icon className={`h-6 w-6 ${value.color}`} />
+                    <div className={`w-14 h-14 ${value.bgColor} rounded-lg flex items-center justify-center mb-4 shadow-md`}>
+                      <Icon className={`h-7 w-7 ${value.color}`} />
                     </div>
                     <CardTitle className="text-xl font-montserrat font-bold text-zisa-blue-dark">
                       {value.title}

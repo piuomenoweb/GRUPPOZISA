@@ -44,7 +44,7 @@ export default function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled 
           ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200" 
-          : "bg-white/80 backdrop-blur-sm"
+          : "bg-white/90 backdrop-blur-sm"
       )}
     >
       <nav className="container mx-auto px-4 py-4">

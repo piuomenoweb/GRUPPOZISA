@@ -72,9 +72,9 @@ export default function Stats() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white text-center h-full">
+                <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white text-center h-full hover:bg-white/15 transition-colors">
                   <CardContent className="p-8">
-                    <div className={`w-16 h-16 ${stat.bgColor} rounded-full flex items-center justify-center mx-auto mb-6`}>
+                    <div className={`w-16 h-16 ${stat.bgColor} rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg`}>
                       <Icon className={`h-8 w-8 ${stat.color}`} />
                     </div>
                     <div className="mb-4">

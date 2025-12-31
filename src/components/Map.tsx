@@ -101,9 +101,17 @@ export default function Map() {
         >
           <Card className="border-2 border-zisa-blue/20 shadow-lg overflow-hidden">
             <CardContent className="p-0">
-              <div className="relative h-96 md:h-[500px] bg-gradient-to-br from-zisa-blue to-zisa-blue-dark flex items-center justify-center">
-                <div className="text-center text-white p-8">
-                  <MapPin className="h-16 w-16 mx-auto mb-4 text-zisa-yellow" />
+              <div className="relative h-96 md:h-[500px] bg-gradient-to-br from-zisa-blue to-zisa-blue-dark flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 opacity-20">
+                  <Image
+                    src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&h=600&fit=crop"
+                    alt="Mappa Sicilia"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative text-center text-white p-8 z-10">
+                  <MapPin className="h-16 w-16 mx-auto mb-4 text-zisa-yellow drop-shadow-lg" />
                   <h3 className="text-2xl md:text-3xl font-montserrat font-bold mb-2">
                     Mappa Interattiva
                   </h3>

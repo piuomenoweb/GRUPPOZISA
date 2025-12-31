@@ -139,12 +139,18 @@ export default function About() {
               <Card className="overflow-hidden border-2 border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-zisa-blue to-blue-900">
                   <Image
-                    src={`https://via.placeholder.com/400x400/3B82F6/FFFFFF?text=${encodeURIComponent(name)}`}
+                    src={name === 'Giuseppe Zisa' 
+                      ? 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'
+                      : name === 'Giannandrea Zisa'
+                      ? 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop'
+                      : 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop'
+                    }
                     alt={name}
                     width={400}
                     height={400}
                     className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zisa-blue/60 to-transparent" />
                 </div>
                 <CardContent className="p-4 text-center">
                   <h3 className="font-montserrat font-semibold text-zisa-blue-dark">
